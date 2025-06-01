@@ -5,12 +5,20 @@ int main() {
     int nota, aprobados = 0, desaprobados = 0, cantidad = 0;
     float suma = 0;
     char continuar;
-
-    do {
-    	cout << "Notas de los estudiantes de la UNJBG"<< endl;
-        cout << "Ingresa una nota: ";
-        cin >> nota;
-        suma += nota;
+        cout << "+-----------------------------------------+" << endl;
+        cout << "|  Registro de notas - Estudiantes UNJBG  |" << endl;
+        cout << "+-----------------------------------------+" << endl;
+        cout << "" << endl;    do {
+        do{
+			cout << "Ingresa una nota: "<<endl;
+        	cin >> nota;
+			if(nota < 0 or nota > 20) {
+			cout << "¡Nota incorrecta!La nota debe de estar entre 0 y 20"<<endl;
+		
+		}
+		}while(nota < 0 or nota > 20);
+            
+        suma = suma + nota;
         cantidad++;
 
         if(nota >= 11) {
@@ -19,10 +27,13 @@ int main() {
             desaprobados++;
         }
 
-        cout << "¿Desea ingresar otra nota? (s/n): ";
+        cout << "¿Quieres ingresar otra nota? (Si/No): "<<endl;
+        cout<<"1 <- Si"<<endl;
+        cout<<"2 <- No"<<endl;
         cin >> continuar;
-    } while(continuar == 's' || continuar == 'S');
-
+    } while(continuar == '1' );
+    cout << " " << endl;
+    cout << "RESULTADOS " << endl;
     cout << "Cantidad de aprobados: " << aprobados << endl;
     cout << "Cantidad de desaprobados: " << desaprobados << endl;
     cout << "Promedio del salon: " << suma / cantidad << endl;
